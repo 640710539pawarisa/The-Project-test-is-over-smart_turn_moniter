@@ -1,12 +1,27 @@
 #ตรวจจับกลุ่มวัตถุจากสี basic19
+#วัตถุนั้นๆอยู่ตำแหน่งใดบ้างแยกแต่ละสี เช่น ลูกบอลสีแดง อยู่ตำแหน่งใดบ้าง ลูกบอลสีเขียว อยู่ตำแหน่งใดบ้าง
 
 import cv2
-import numpy as np
+import numpy #เรียกใช้ numpy **สำคัญ**เพราะเราทำอาเรย์เพื่อเก็บตำแหน่งที่ตรวจจับวัตถุได้
 
-img = cv2.imread("image/rainbow_ball.jpg")
-
-
-#ตรวจจับกลุ่มวัตถุจากสี   
-cv2.imshow("Output", img)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+while True : #ใช้ while เพื่อให้หน้าต่างไม่ปิดอัตโนมัติ 
+    img = cv2.imread("image/mixed_colourballs.webp") #อ่านภาพ
+    img=cv2.resize(img,(600,600))#ปรับขนาดภาพ
+    
+    #ช่วงของสี
+    #lower = numpy.array(B,G,R) #ช่วงสีที่เข้มที่สุด หรือ สีต่ําที่สุด
+    #upper = numpy.array(B,G,R) #ช่วงสีที่เจือจางที่สุด หรือ สีสูงที่สุด
+    lower = numpy.array([5,111,10]) #ตัวเลขในอาเรย์คือ BGR ที่เราไปเลือกมาจากรูปภาพที่เลือกมาเราสามารถดูค่าความเข้มของสีได้จากรูปแล้วลองจิ้มเปิดดูสีในPhotoshopดูได้
+    upper =  numpy.array([124,255,133])
+    
+    mask = cv2.inRange(img, lower, upper) #ตรวจจับวัตถุจากสี , mask คือเป็นตัวแปรที่เก็บวัตถุที่ตรวจจับได้
+    res = cv2.bitwise_and(img, img, mask = mask) #แสดงวัตถุที่ตรวจจับได้ , res คือตัวแปรที่เก็บวัตถุที่ตรวจจับได้
+    
+    
+    if cv2.waitKey(1) & 0xFF == ord("q"): #ถ้ากด q ให้หน้าต่างปิดอัตโนมัติ
+        break
+    
+    #แสดงภาพต้นแบบ
+    cv2.imshow("Output", img) #แสดงภาพ #"Output" คือชื่อหน้าต่าง หรือ window , img คือภาพ 
+    
+cv2.destroyAllWindows() #ปิดหน้าต่างโดยการกด q
