@@ -18,7 +18,7 @@ eye_detect = eye_cascade.detectMultiScale(gray_img,scaleFactor,minNeighbors)
 
 #แสดงตำแหน่งดวงตาที่ตรวจพบ
 for (x,y,w,h) in eye_detect: 
-        cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),thickness= 5)#แสดงตำแหน่งดวงตาที่ตรวจพบ
+        cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),thickness= 2)#แสดงตำแหน่งดวงตาที่ตรวจพบ
     
 #แสดงภาพ
 cv2.imshow("Original",img)#แสดงภาพต้นฉบับ
