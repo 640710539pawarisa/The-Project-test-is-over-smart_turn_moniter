@@ -1,6 +1,5 @@
 #ตรวจจับใบหน้าจากวีดีโอ basic21
-
-import cv2 #เรียกใช้ cv2
+import cv2   #เรียกใช้ cv2
 cap = cv2.VideoCapture("image/Rap_battle.mp4") #อ่านวีดีโอ
 
 #นำคำสั่งจาก basic20 เพื่อตรวจจับใบหน้าจากภาพ
@@ -16,7 +15,8 @@ while (cap.isOpened()): #ใช้ while เพื่อให้หน้าต
         gray_img = cv2.cvtColor(frame , cv2.COLOR_BGR2GRAY)#แปลงภาพจาก BGR เป็น GrayScale เพื่อใช้ในการตรวจจับใบหน้า ,frame คือภาพสี
         #จำแนกใบหน้า
         face_detect = face_cascade.detectMultiScale(gray_img, scaleFactor=1.2, minNeighbors=5) #ตรวจจับใบหน้า ,face_detect คือตัวแปรที่เก็บค่าของการตรวจจับใบหน้า
-        #,face_cascade.detectMultiScale คือการใช้ตรวจจับใบหน้าจากภาพ GrayScale โดยเก็บไว้ในตัวแปร face_cascade ,scale_factor คือ การลดขนาดภาพ ,minNeighborคือ สร้างกล่องสี่เหลี่ยมที่ใบหน้าที่ใกล้เคียงที่ตวรจจับได้
+        #,face_cascade.detectMultiScale คือการใช้ตรวจจับใบหน้าจากภาพ GrayScale โดยเก็บไว้ในตัวแปร face_cascade ,scale_factor คือ การลดขนาดภาพ
+        # ,minNeighborคือ สร้างกล่องสี่เหลี่ยมที่ใบหน้าที่ใกล้เคียงที่ตวรจจับได้
         for (x, y, w, h) in face_detect: #วนลูปเพื่อแสดงตำแหน่งใบหน้าที่ตรวจพบ
             cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0),thickness= 5) #แสดงตำแหน่งใบหน้าที่ตรวจพบ
             cv2.imshow("Output", frame) #แสดงภาพ
