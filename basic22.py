@@ -8,7 +8,7 @@ img = cv2.resize(img,(400,500))#ปรับขนาดภาพ
 #อ่านไฟล์ สำหรับ classification
 eye_cascade = cv2.CascadeClassifier("Detect/haarcascade_eye_tree_eyeglasses.xml")#ตรวจจับดวงตา
 
-#แสดงผลวีดีโอ
+#เปลี่ยนสีเป็น GrayScale
 gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 #จำแนกดวงตาจากภาพ GrayScale

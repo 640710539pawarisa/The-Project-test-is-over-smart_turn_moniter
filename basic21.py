@@ -1,6 +1,6 @@
 #ตรวจจับใบหน้าจากวีดีโอ basic21
 import cv2   #เรียกใช้ cv2
-cap = cv2.VideoCapture("image/Rap_battle.mp4") #อ่านวีดีโอ
+cap = cv2.VideoCapture("image/nice.mp4") #อ่านวีดีโอ
 
 #นำคำสั่งจาก basic20 เพื่อตรวจจับใบหน้าจากภาพ
 #อ่านไฟล์ สำหรับ classification
