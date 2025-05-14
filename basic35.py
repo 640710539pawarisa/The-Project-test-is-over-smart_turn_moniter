@@ -1,4 +1,4 @@
-#Opening Morphological basic37
+#Dilation Morphological basic35
 import cv2
 import numpy as np
 
