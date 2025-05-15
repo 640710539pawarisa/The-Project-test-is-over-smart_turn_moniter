@@ -1,5 +1,4 @@
-#ตรวจจับขอบภาพด้วย Sobel Method basic44
-
+#ตรวจจับขอบภาพด้วย Laplacian Method basic44
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt

@@ -1,4 +1,4 @@
-#ตรวจจับขอบภาพด้วย Laplacian Method basic45
+#ตรวจจับขอบภาพด้วย Canny Method basic45
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt

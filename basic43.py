@@ -1,6 +1,8 @@
-# ตรวจจับขอบภาพ Edge Detection basic43
+#ตรวจจับขอบภาพด้วย Sobel Method basic43
+
 import cv2
+import numpy as np
 import matplotlib.pyplot as plt
 
-img = cv2.imread("image/noisepic.jpg",0)#อ่านภาพ
-img_resize = cv2.resize(img, (450,400))#ปรับขนาดภาพ
+img = cv2.imread("image/coins.jpg",0)#อ่านภาพ
+img =cv2.resize(img,(500,350))#ปรับขนาดภาพ
